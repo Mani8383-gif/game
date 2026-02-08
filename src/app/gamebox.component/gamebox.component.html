@@ -1,0 +1,42 @@
+<section class="flex overflow-hidden ">
+<div class="bg-black w-[20%] h-screen text-white flex flex-col justify-center items-center gap-5 ">
+    <div class=" flex justify-between items-baseline w-18 ">
+   <span class=" text-red-500  pi pi-heart"></span>  <span class=" ">lives:  {{lives}}</span>
+</div>
+   
+    <span>score:  {{score}}</span>
+
+    <button class="bg-green-500 w-30 rounded-2xl" [disabled]="game" (click)="gamestart()" >start</button>
+    <button class="bg-red-500 w-30 rounded-2xl" (click)="gameend()">end</button>
+
+    
+</div>
+<div class="relative   bg-gray-800 w-[80%] h-screen">
+    @if (game) {
+            @for (shape of shapes; track $index) {
+        
+        <div class="absolute border border-black flex " 
+        [style.height.px]="shape.height"
+        [style.width.px]="shape.width"
+        [style.background-color]="shape.background"
+        [style.top.px]="shape.top"
+        [style.border-radius]="shape.borederradious+'%'"
+      
+        [style.right.px]="shape.right" (click)="remove($index)"
+  >
+    
+  </div>
+    }
+  
+    }
+    
+   @else {
+    <div class="absolute top-70 right-120 text-4xl text-red-600 text-center hidden bg-black p-10 rounded-lg transition-all" [ngStyle]="block">end <br>your score is: {{score}}</div>
+
+   }
+
+ 
+</div>
+
+
+</section>

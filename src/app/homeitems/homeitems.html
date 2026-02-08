@@ -1,0 +1,8 @@
+<p class="bg-cyan-800 w-80 h-90 rounded-lg p-5 relative flex justify-center cursor-pointer items-baseline overflow-hidden" (click)="details()" >    
+
+  <span class="flex flex-nowrap absolute bottom-15 m-5">{{title}}</span>  
+  <img [src]="src" alt="" class="h-40">
+ 
+<button (click)="delete($event)"  class="absolute bottom-5 flex items-center justify-center bg-black">remove<span class="pi pi-times m-1"></span></button>
+
+</p>

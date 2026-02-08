@@ -1,0 +1,13 @@
+<!-- <h1 class="w-screen border-b border-e-amber-50 text-4xl text-center p-5">items</h1>
+<ul class="flex flex-wrap w-screen justify-center gap-10 mt-5">
+    @for (item of homeperson; track $index) {
+           <app-homeitems  [id]="item.id" [title]="item.products[0].title" (detail)="detailpage(item.id)" [src]="item.products[0].thumbnail"></app-homeitems>
+    }
+
+</ul> -->
+<div class="flex flex-wrap gap-5 justify-center items-center">
+    @for (item of products; track $index) {
+    <app-homeitems  [title]="item.title" [src]="item.image" (ondelete)="delete(item.id)" (detail)="detailpage(item.id)"></app-homeitems>
+ }
+
+</div>

@@ -1,0 +1,14 @@
+<div class=" flex flex-col overflow-x-hidden">
+
+<div class="flex-1 pb-40"><router-outlet></router-outlet></div>   
+<footer class="h-15 w-screen fixed bottom-0 bg-black">
+    <ul class="flex justify-between items-center align-middle ">
+        <li class="cursor-pointer text-center border-t border-r border-amber-50 w-2xl h-15 flex justify-center items-center" (click)="home()">home</li>
+        <li class="cursor-pointer text-center border-t border-r border-amber-50 w-2xl h-15 flex justify-center items-center" (click)="profile()">profile</li>
+        <li class="cursor-pointer text-center border-t border-r border-amber-50 w-2xl h-15 flex justify-center items-center" (click)="explore()">explore</li>
+        <li class="cursor-pointer text-center border-t  border-amber-50 w-2xl h-15 flex justify-center items-center" (click)="post()">post</li>
+    </ul>
+</footer>
+</div>
+
+
