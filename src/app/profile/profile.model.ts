@@ -1,6 +1,10 @@
 export interface users{
-    userId: number
-    id: number
-    title: string
-    body:string
+   accessToken?:string
+   id?:number
+   username?:string
+   email?:string
+   firstName?:string
+   lastName?:string
+   gender?:string
+   image?:string
 }

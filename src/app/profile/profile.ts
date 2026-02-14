@@ -1,4 +1,4 @@
-import { JsonPipe, UpperCasePipe } from '@angular/common';
+import { JsonPipe, UpperCasePipe, NgStyle } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Profileusers } from "./profileusers/profileusers";
 
 @Component({
   selector: 'app-profile',
-  imports: [FormsModule, UpperCasePipe, JsonPipe, Profileusers],
+  imports: [FormsModule],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
   providers:[takeusers]
@@ -22,7 +22,7 @@ users!:users[]
 home(){
   this.router.navigate(['home'])
 }
-
+value:string=''
 name:string=''
 showname:boolean=false
 welcome(){
@@ -31,40 +31,15 @@ welcome(){
 deb=new BehaviorSubject<string>('');
 post!:Observable<users[]>
 evennumber=interval(500)
-
+formdata!:users
 ngOnInit(): void {
-  this.getusers.getusers().subscribe({
-    next:((res)=>{
-this.users=res 
-console.log('done');
+   const data = localStorage.getItem('form');
+    if (data) {
+    this.formdata = JSON.parse(data);
+  }
+  
 
-    })
-  })
-this.evennumber.pipe(
-  map(v=>v*2),
-  filter(v=>v%2==0)
-  ,filter(v=>v<10)
-).subscribe({
-  next:((res)=>{
-console.log(res);
-
-  })
-})
-from([10,20,10,40]).subscribe({
-  next:((res)=>{
-console.log(res);
-
-  })
-})
-this.deb.pipe(debounceTime(500)).subscribe({
-  next:((res)=>{
-console.log('end');
-
-  })
-})
 }
-
-
 
 
 

@@ -17,34 +17,8 @@ export class Test implements OnInit {
   router=inject(Router)
   item:string=''
   squares:number[]=[]
-  random:number=1
   value!:number
-  generate=interval(1000);
-  adad=new Subject<number>()
-square:number=0
-   obs=new Observable(
-    subscriber=>{
-      subscriber.next(5);
-      subscriber.next(3);
-      subscriber.complete();
-    });
-    generating(){
-      
 
-    }
-    removeshape(index:number){
-      this.squares.splice(index,1)
-
-    }
-    g(square:number){
-    this.squares.push(square)
-    
-    }
-    change(){
-   const randomvalue= this.random*Math.round((Math.random())*5)
-      this.adad.next(randomvalue)
-      
-    }
     addlist(item:string){
 this.list.push(item)
 this.saveToStorage()
@@ -59,17 +33,7 @@ this.saveToStorage()
  
     }
     ngOnInit() {
-      this.adad.pipe(
-        distinctUntilChanged(),
-        filter(v=>v<=3)
-        
-      ).subscribe(v=>{
-        this.value=v;
-        console.log(v);
-        
-      }
-      )
-
+  
   const saved = localStorage.getItem('todo-list');
 
   if (saved) {
@@ -82,12 +46,10 @@ this.saveToStorage()
 click=new Subject<void>()
 
 constructor(){
-this.click.pipe(debounceTime(500)
-).subscribe(v=>{
-  console.log('last',v);
-  
-})
 
+}
+login(){
+  this.router.navigate(['login'])
 }
 
 }

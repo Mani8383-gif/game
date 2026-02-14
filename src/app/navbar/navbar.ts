@@ -13,10 +13,10 @@ export class Navbar {
   this.router.navigate(['home'])
   }
   explore(){
-this.router.navigate(['explore'])
+this.router.navigate(['game'])
   }
   post(){
-this.router.navigate(['post'])
+this.router.navigate(['test'])
   }
   profile(){
 this.router.navigate(['profile'])
