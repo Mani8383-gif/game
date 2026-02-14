@@ -13,10 +13,5 @@ export class HomeId {
 @Input() src!:string
 @Input() desc!:string
 @Input() price!:number 
-expensive(){
-  if(this.price>200){
-    color:'blue'
-  }
-  
-}
+
 }

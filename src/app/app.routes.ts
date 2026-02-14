@@ -17,7 +17,7 @@ export const routes: Routes = [
     {
         path:'game',
         component:GameboxComponent,
-        canActivate:[loginguard]
+      
         
     },
     {

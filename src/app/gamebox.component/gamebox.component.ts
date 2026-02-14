@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { filter, interval, map, pluck, Subscription, takeUntil, takeWhile, timeInterval } from 'rxjs';
 import { shape } from './shape.model';
 import { JsonPipe, NgClass, NgStyle } from '@angular/common';
@@ -11,7 +11,7 @@ import { JsonPipe, NgClass, NgStyle } from '@angular/common';
   templateUrl: './gamebox.component.html',
   styleUrl: './gamebox.component.css',
 })
-export class GameboxComponent {
+export class GameboxComponent implements OnDestroy {
   scores:any[]=[]
 
 lives:number=3
@@ -28,6 +28,7 @@ game:boolean=false
   constructor(private cdr: ChangeDetectorRef) {
 
    }
+
    randomwidth=[40,55]
    randomshape=[0,50,100]
 randomcolor=['red','blue','green','pink']
@@ -80,6 +81,7 @@ gamestart(){
 }
 lastsavescore:any
 block:any
+
 gameend(){
 this.moveshape?.unsubscribe()
 this.startgame?.unsubscribe()
@@ -94,4 +96,9 @@ remove(index:number){
   this.score++
   
 }
+  ngOnDestroy(): void {
+   this.moveshape?.unsubscribe()
+this.startgame?.unsubscribe()
+  this.game=false
+  }
 }
