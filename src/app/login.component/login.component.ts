@@ -35,7 +35,7 @@ submit(){
  ).subscribe({
   next:((res)=>{debugger
     localStorage.setItem('form',JSON.stringify(res)) 
-    this.router.navigate(['home'])
+    this.router.navigate(['test'])
     this.wrongpas=false
 
   })
