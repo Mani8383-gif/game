@@ -1,5 +1,5 @@
 import { Component, Input, input } from '@angular/core';
-import { NgClass } from "../../../../node_modules/@angular/common/types/_common_module-chunk";
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-homeid',
@@ -9,11 +9,14 @@ import { NgClass } from "../../../../node_modules/@angular/common/types/_common_
 })
 export class HomeId {
 @Input() id!:number
-@Input() title!:string
+@Input() title?:string 
 @Input() src!:string
 @Input() desc!:string
 @Input() price!:number 
-expensive():boolean{
-  return this.price>200
+expensive(){
+  if(this.price>200){
+    color:'blue'
+  }
+  
 }
 }

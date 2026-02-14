@@ -1,2 +1,3 @@
-
-<app-homeid [title]="productsid.title" [src]="productsid.image" [desc]="productsid.description"  [price]="productsid.price"></app-homeid>
+@if (productsid) {
+    <app-homeid [title]="productsid.title" [src]="productsid.image" [desc]="productsid.description"  [price]="productsid.price"></app-homeid>
+}
